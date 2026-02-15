@@ -2,7 +2,7 @@
 //  GoPaddiApp.swift
 //  GoPaddi
 //
-//  Created by Obinna Amadi on 15/02/2026.
+//  The main entry point for the GoPaddi application.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct GoPaddiApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PlanTripView()
         }
     }
 }
