@@ -27,7 +27,13 @@ final class TripService: TripServiceProtocol {
 
     func fetchTrips() async throws -> [Trip] {
         let endpoint = APIEndpoint(path: "/trips")
-        return try await client.request(endpoint)
+        do {
+            return try await client.request(endpoint)
+        } catch {
+            // Fallback to local data if API fails
+            print("API failed: \(error). Using local backup data.")
+            return LocalData.backupTrips
+        }
     }
 
     func fetchTrip(id: String) async throws -> Trip {
